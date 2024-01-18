@@ -1,0 +1,29 @@
+cubes:
+  - name: User
+    sql: SELECT * FROM mydb.user
+    joins: []
+    measures:
+      - name: count
+        type: count
+      - name: show
+        type: string
+        drillMembers: [id, username, createdAt, password, email]
+        sql: 'select * from user'
+    dimensions:
+      - name: email
+        sql: email
+        type: string
+      - name: id
+        sql: id
+        type: number
+        primaryKey: true
+      - name: password
+        sql: password
+        type: string
+      - name: username
+        sql: username
+        type: string
+      - name: createdAt
+        sql: created_at
+        type: time
+    dataSource: default
